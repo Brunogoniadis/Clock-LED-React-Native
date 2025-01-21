@@ -21,6 +21,9 @@
         "backgroundColor": "#ffffff"
       }
     },
+    "expo": {
+      "entryPoint": "./src/App.js"
+    },
     "web": {
       "favicon": "./assets/favicon.png"
     }
