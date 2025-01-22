@@ -1,4 +1,7 @@
 {
     "welcome": "Welcome",
-    "greeting": "Hello"
+    "greeting": "Hello",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
 }

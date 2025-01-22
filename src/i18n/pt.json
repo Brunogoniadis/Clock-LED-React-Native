@@ -1,4 +1,7 @@
 {
-    "welcome": "Bem-vindo",
-    "greeting": "Olá"
+    "welcome": "Welcome",
+    "greeting": "Hello",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "seconds": "Segundos"
 }

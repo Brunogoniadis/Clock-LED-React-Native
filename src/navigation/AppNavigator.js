@@ -8,9 +8,9 @@ const Stack = createStackNavigator();
 
 function AppNavigator() {
 
-    
 
     return (
+
         <NavigationContainer>
 
 
@@ -18,17 +18,18 @@ function AppNavigator() {
 
                 <Stack.Screen
                     name="MainPage"
-                    navigation={{header:false}}
+                    navigation={{ header: false }}
                     component={MainPage}
                 />
                 <Stack.Screen
                     name="Profile"
-                    navigation={{header:false}}
+                    navigation={{ header: false }}
 
                     component={Profile}
                 />
             </Stack.Navigator>
         </NavigationContainer>
+
     );
 }
 
