@@ -16,9 +16,9 @@ const MainPage = ({ navigation }) => {
     const { t, i18n } = useTranslation();
 
     // Tempo
-    const POMODORO_TIME = 30; // 25 minutos = 1500 // Para testes = 20
+    const POMODORO_TIME = 2; // 25 minutos = 1500 // Para testes = 20
     const BREAK_TIME = 3; // 5 minutos = 300 // Para testes = 10
-    const LONG_BREAK_TIME = 30; // 15 minutos = 900 // Para testes = 30
+    const LONG_BREAK_TIME = 2; // 15 minutos = 900 // Para testes = 30
 
     const [secondsElapsed, setSecondsElapsed] = useState(POMODORO_TIME);
     const [isRunning, setIsRunning] = useState(false);
@@ -34,13 +34,14 @@ const MainPage = ({ navigation }) => {
 
     useEffect(() => {
         let intervalId;
+        const totalTime = isFocusTime ? POMODORO_TIME : (cyclesCompleted >= 3 ? LONG_BREAK_TIME : BREAK_TIME);
     
         if (isRunning && secondsElapsed > 0) {
             intervalId = setInterval(() => {
                 setSecondsElapsed(prev => prev - 1);
             }, 1000);
     
-            const progressValue = (POMODORO_TIME - secondsElapsed) / POMODORO_TIME;
+            const progressValue = (totalTime - secondsElapsed) / totalTime;
             progress.setValue(progressValue);
         } else if (secondsElapsed === 0) {
             clearInterval(intervalId);
@@ -49,18 +50,20 @@ const MainPage = ({ navigation }) => {
                 {
                     text: t('OK'),
                     onPress: () => {
-    
                         if (isFocusTime) {
                             setIsFocusTime(false);
                             setCyclesCompleted(prev => prev + 1);
     
+                            // Resetar a barra de progresso ao mudar para o descanso
                             progress.setValue(0);
     
+                            // Definir o tempo de descanso
                             setSecondsElapsed(cyclesCompleted >= 3 ? LONG_BREAK_TIME : BREAK_TIME);
                         } else {
                             setIsFocusTime(true);
                             setSecondsElapsed(POMODORO_TIME);
     
+                            // Resetar a barra de progresso ao mudar para o foco
                             progress.setValue(0);
                         }
     
@@ -74,6 +77,8 @@ const MainPage = ({ navigation }) => {
             if (intervalId) clearInterval(intervalId);
         };
     }, [isRunning, secondsElapsed, isFocusTime, cyclesCompleted]);
+        
+    
 
     const formatTime = (totalSeconds) => {
         const minutes = Math.floor(totalSeconds / 60);
