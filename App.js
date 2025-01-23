@@ -8,7 +8,8 @@ import Profile from './src/pages/Profile';
 export default function App() {
   const Stack = createNativeStackNavigator();
 
-  useEffect(() => {
+
+/*   useEffect(() => {
     const lockOrientation = async () => {
       await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
     };
@@ -20,7 +21,9 @@ export default function App() {
     };
 
 
-  }, []);
+  }, []); */
+
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="MainPage">

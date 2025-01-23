@@ -7,7 +7,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+
+    backgroundColor: 'rgba(211,55,55, 1)'
+
   },
+  containerBlue: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+
+    backgroundColor: 'rgba(44,130,201, 1)'
+
+  },
+
   topRightButton: {
     position: 'absolute',
     top: 20,
@@ -18,20 +31,20 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textDecorationLine: 'underline',
   },
-  welcomeText: {
-    fontSize: 24,
-    color: '#FFFFFF',
-    marginTop: 20,
+  areaGreeting: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '15',
+    marginTop: 15,
+    height:55
   },
-  greetingText: {
-    fontSize: 20,
-    color: '#FFFFFF',
-    marginTop: 10,
-  },
-  pageTitle: {
-    fontSize: 28,
-    color: '#FFFFFF',
-    textAlign: 'center',
+  textGreeting: {
+    color: 'white',
+    fontWeight: 'bold',
+    padding:0,
+    margin:0,
+    gap:0,
   },
 });
 
